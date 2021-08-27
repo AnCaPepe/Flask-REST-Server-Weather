@@ -35,6 +35,10 @@ jobs:
           pip install pytest
           pip install -r requirements.txt
       - name: Initialize database
+        env:
+          FLASK_APP: manage.py
+          FLASK_ENV: development
+          DB_HOST: localhost
         run: |
           flask db upgrade
       - name: Test with pytest
