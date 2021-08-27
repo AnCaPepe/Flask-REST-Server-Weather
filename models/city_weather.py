@@ -9,6 +9,9 @@ class CityWeather( db.Model ):
     date = db.Column( db.DateTime )
     
     def __init__( self, city, weather, temp ):
+        self.set( city, weather, temp )
+
+    def set( self, city, weather, temp ):
         self.city = city
         self.weather = weather
         self.temperature = temp

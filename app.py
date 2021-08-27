@@ -9,7 +9,7 @@ def create_app( **config_overrides ):
     
    app.config.from_pyfile( 'settings.py' )
    app.config.update( config_overrides )
-    
+
    db.init_app( app )
    Migrate( app, db )
     
