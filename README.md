@@ -7,10 +7,15 @@ Weather Buddy server implementation
 ### Dependencies
 ***
 
-To run locally, have a **Python 3.x** interpreter installed and add the necessary packages with the terminal command:
+To run the server locally, have a **Python 3.x** interpreter installed and add the necessary packages with the terminal command:
 
 ```shell
 pip install -r requirements.txt
+```
+
+For the client, install the dependencies with **npm**:
+```shell
+npm install
 ```
 
 ***
@@ -31,7 +36,14 @@ Then it's possible to run the web server itself, optionally defining the databas
 DB_HOST=<your_host> FLASK_APP=manage.py FLASK_ENV={production,development} flask run
 ```
 
-If everything is properly set up, it will be possible to call the WebAPI with **Postman** or a custom web client.
+If everything is properly set up, it will be possible to call the WebAPI with **Postman** on `http://<DB_HOST>:5000`.
+
+The client can be run with the command:
+```shell
+npm run serve
+```
+
+Becoming available on `http://localhost:8081`.
 
 ***
 ### Testing
@@ -64,6 +76,8 @@ docker-compose run --rm flaskapp flask db upgrade
 ```shell
 docker-compose up -d
 ```
+
+The client should become available on `http://<host>:3000`.
 
 ***
 ## Automatic Deployment for Amazon EC2 Instances

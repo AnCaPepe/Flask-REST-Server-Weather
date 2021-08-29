@@ -24,7 +24,13 @@ services:
       - db
     networks:
       - connection
-
+  client:
+    build: ./client
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - db
 volumes:
   dbdata:
 networks:
