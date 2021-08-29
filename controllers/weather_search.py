@@ -1,7 +1,4 @@
 from flask import Blueprint, request, redirect, jsonify, make_response, current_app
-from urllib.request import urlopen
-from urllib.parse import urlencode
-from urllib.error import HTTPError
 from datetime import datetime, timedelta
 import requests
 import sqlalchemy
