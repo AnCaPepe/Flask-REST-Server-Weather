@@ -30,7 +30,7 @@ services:
     ports:
       - "3000:80"
     depends_on:
-      - db
+      - flaskapp
     networks:
       - connection
 volumes:

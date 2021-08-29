@@ -32,7 +32,7 @@ export default {
   methods: {
     getLatest() {
       this.axios
-        .get('http://flaskapp:5000/weather?max_entries=5')
+        .get('http://server:5000/weather?max_entries=5')
         .then((response) => {
           console.log(response)
           console.log(response.data)
@@ -47,7 +47,7 @@ export default {
       this.entries = []
       // Fetch database
       this.axios
-        .get(`http://flaskapp:5000/weather/${this.cityName}`)
+        .get(`http://server:5000/weather/${this.cityName}`)
         .then((response) => {
           console.log(response)
           this.currentEntry = response.data
