@@ -6,7 +6,6 @@ COPY package-lock.json ./
 RUN npm install --silent
 COPY . ./
 RUN npm run build
-RUN ls
 
 # production environment
 FROM nginx:stable-alpine
