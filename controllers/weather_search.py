@@ -1,4 +1,5 @@
 from flask import Blueprint, request, redirect, jsonify, make_response, current_app
+from flask_cors import cross_origin
 from datetime import datetime, timedelta
 import requests
 import sqlalchemy
@@ -36,7 +37,9 @@ def get_list_from_cache():
     for entry in entries:
         results.append( { 'city':entry.city, 'weather':entry.weather, 'temperature':entry.temperature } )
 
-    return make_response( jsonify( results ), 200 )
+    response = jsonify( results )
+    response.headers.add( "Access-Control-Allow-Origin", "*" )
+    return make_response( response, 200 )
 
 def insert_city( city_name, weather_description, temperature ):
     try:
@@ -72,4 +75,6 @@ def get_for_city( city ):
 
     result = { 'city':entry.city, 'weather':entry.weather, 'temperature':entry.temperature }
 
-    return make_response( jsonify( result ), 200 )
+    response = jsonify( result )
+    response.headers.add( "Access-Control-Allow-Origin", "*" )
+    return make_response( response, 200 )

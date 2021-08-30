@@ -31,8 +31,6 @@ services:
       - "3000:80"
     depends_on:
       - flaskapp
-    networks:
-      - connection
 volumes:
   dbdata:
 networks:
